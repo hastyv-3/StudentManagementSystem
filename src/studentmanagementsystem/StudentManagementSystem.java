@@ -76,46 +76,69 @@ public class StudentManagementSystem {
     private void addStudent() {
         String input1;
         String input2;
-        
+
         System.out.println();
         System.out.println("***Add Student***");
         System.out.println("Enter student's name: ");
         input1 = keyboard.nextLine();
-        
+
         System.out.println("Enter student's id: ");
         input2 = keyboard.nextLine();
-        
+
         students.put(input2, new Student(input2, input1));
+        System.out.println("Student successfully added.");
 
     }
 
     // removes student from HashMap given id
     private void removeStudent() {
         String input;
-        
+
         System.out.println();
         System.out.println("***Remove Student***");
         System.out.println("Enter student's id: ");
         input = keyboard.nextLine();
-        
-        students.remove(input);
+
+        if (students.containsKey(input)) {
+            students.remove(input);
+            System.out.println("Student successfully removed.");
+        } else {
+            System.out.println("Student id not found.");
+        }
 
     }
 
+    // change's students name
     private void updateStudent() {
+        String input;
+
+        System.out.println("Enter student's id: ");
+        input = keyboard.nextLine();
+
+        if (students.containsKey(input)) {
+            System.out.println("Enter student's new name: ");
+            students.get(input).setName(keyboard.nextLine());
+            System.out.println("Student record successfully updated.");
+        } else {
+            System.out.println("Student id not found.");
+        }
 
     }
 
     // view student in HashMap given id
     private void viewStudent() {
         String input;
-        
+
         System.out.println();
         System.out.println("***View Student***");
         System.out.println("Enter student's id: ");
         input = keyboard.nextLine();
-        
-        System.out.println(students.get(input));
+
+        if (students.containsKey(input)) {
+            System.out.println(students.get(input));
+        } else {
+            System.out.println("Student id not found.");
+        }
 
     }
 
