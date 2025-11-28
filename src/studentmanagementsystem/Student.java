@@ -1,6 +1,6 @@
 package studentmanagementsystem;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -10,10 +10,12 @@ public class Student {
 
     private String id;
     private String name;
-    private double[] grades;
-    private ArrayList<Subject> subjects;
+    private HashMap<String, Subject> subjects;
 
-    public Student() {
+    public Student(String i, String n) {
+        id = i;
+        name = n;
+        subjects = new HashMap<String, Subject>();
 
     }
 
@@ -27,13 +29,9 @@ public class Student {
     public void setName(String n) {
         name = n;
     }
-
-    public void setGrades(double[] g) {
-        grades = g;
-    }
-
-    public void setSubjects(ArrayList<Subject> s) {
-        subjects = s;
+    // Adding a subject to students schedule
+    public void addSubject(String subject, double grade) {
+        subjects.put(subject, new Subject(subject, grade));
     }
     
     /*
@@ -47,11 +45,21 @@ public class Student {
         return name;
     }
 
-    public double[] getGrades() {
-        return grades;
-    }
-
-    public ArrayList<Subject> getSubjects() {
+    public HashMap<String, Subject> getSubjects() {
         return subjects;
     }
+    
+    /*
+     * Calculations
+     */
+    // Average grade
+    public double calculateAverageGrade() {
+        double sum = 0;
+        for (Subject s: subjects.values()) {
+            sum += s.getGrade();
+        }
+        
+        return sum / subjects.size();
+    }
+    
 }

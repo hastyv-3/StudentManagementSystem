@@ -1,6 +1,6 @@
 package studentmanagementsystem;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -9,11 +9,11 @@ import java.util.Scanner;
  */
 public class StudentManagementSystem {
 
-    private ArrayList<Student> students;
+    private HashMap<String, Student> students;
     private Scanner keyboard;
 
     public StudentManagementSystem() {
-        students = new ArrayList<Student>();
+        students = new HashMap<String, Student>();
         keyboard = new Scanner(System.in);
     }
 
@@ -72,11 +72,33 @@ public class StudentManagementSystem {
 
     }
 
+    // adds student to HashMap with id being key
     private void addStudent() {
+        String input1;
+        String input2;
+        
+        System.out.println();
+        System.out.println("***Add Student***");
+        System.out.println("Enter student's name: ");
+        input1 = keyboard.nextLine();
+        
+        System.out.println("Enter student's id: ");
+        input2 = keyboard.nextLine();
+        
+        students.put(input2, new Student(input2, input1));
 
     }
 
+    // removes student from HashMap given id
     private void removeStudent() {
+        String input;
+        
+        System.out.println();
+        System.out.println("***Remove Student***");
+        System.out.println("Enter student's id: ");
+        input = keyboard.nextLine();
+        
+        students.remove(input);
 
     }
 
@@ -84,7 +106,16 @@ public class StudentManagementSystem {
 
     }
 
+    // view student in HashMap given id
     private void viewStudent() {
+        String input;
+        
+        System.out.println();
+        System.out.println("***View Student***");
+        System.out.println("Enter student's id: ");
+        input = keyboard.nextLine();
+        
+        System.out.println(students.get(input));
 
     }
 
@@ -98,19 +129,5 @@ public class StudentManagementSystem {
 
     private void loadFile() {
 
-    }
-
-    /*
-     * Mutator methods
-     */
-    public void setStudents(ArrayList<Student> s) {
-        students = s;
-    }
-
-    /*
-     * Accessor methods
-     */
-    public ArrayList<Student> getStudents() {
-        return students;
     }
 }

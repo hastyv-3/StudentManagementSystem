@@ -9,8 +9,9 @@ public class Subject {
     private String name;
     private double grade;
     
-    public Subject() {
-        
+    public Subject(String n, double g) {
+        name = n;
+        grade = g;
     }
     
     /*
