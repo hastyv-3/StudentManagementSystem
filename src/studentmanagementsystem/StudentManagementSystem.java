@@ -31,10 +31,11 @@ public class StudentManagementSystem {
             System.out.println("2. Remove Student");
             System.out.println("3. Update Student");
             System.out.println("4. View Student");
-            System.out.println("5. Generate Report");
-            System.out.println("6. Save Student Data to File");
-            System.out.println("7. Load Student Data to File");
-            System.out.println("8. Exit");
+            System.out.println("5. Add Subject");
+            System.out.println("6. Generate Report");
+            System.out.println("7. Save Student Data to File");
+            System.out.println("8. Load Student Data to File");
+            System.out.println("9. Exit");
             System.out.println();
             System.out.print("Enter choice: ");
 
@@ -55,15 +56,18 @@ public class StudentManagementSystem {
                     viewStudent();
                     break;
                 case 5:
-                    generateReport();
+                    addSubject();
                     break;
                 case 6:
-                    saveFile();
+                    generateReport();
                     break;
                 case 7:
-                    loadFile();
+                    saveFile();
                     break;
                 case 8:
+                    loadFile();
+                    break;
+                case 9:
                     inUse = false;
                     break;
             }
@@ -136,6 +140,38 @@ public class StudentManagementSystem {
 
         if (students.containsKey(input)) {
             System.out.println(students.get(input));
+        } else {
+            System.out.println("Student id not found.");
+        }
+
+    }
+
+    private void addSubject() {
+        String input;
+
+        System.out.println();
+        System.out.println("***Add Subject***");
+        System.out.println("Enter student's id: ");
+        input = keyboard.nextLine();
+
+        if (students.containsKey(input)) {
+            Student student = students.get(input);
+            System.out.println("Enter subject name: ");
+            input = keyboard.nextLine();
+
+            if (!student.getSubjects().containsKey(input)) {
+                student.getSubjects().put(input, new Subject(input));
+            }
+
+            Subject subject = student.getSubject(input);
+            System.out.println("Enter subject grade: ");
+            try {
+                double grade = keyboard.nextDouble();
+                subject.setGrade(grade);
+                System.out.println("Grade successfully added.");
+            } catch (InvalidGrade e) {
+                System.out.println(e);
+            }
         } else {
             System.out.println("Student id not found.");
         }

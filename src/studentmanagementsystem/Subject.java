@@ -9,9 +9,8 @@ public class Subject {
     private String name;
     private double grade;
     
-    public Subject(String n, double g) {
+    public Subject(String n) {
         name = n;
-        grade = g;
     }
     
     /*
@@ -21,8 +20,13 @@ public class Subject {
         name = n;
     }
     
-    public void setGrade(double g) {
-        grade = g;
+    public void setGrade(double g) throws InvalidGrade {
+        if ( g < 0 || g > 100) {
+            throw new InvalidGrade();
+        } else {
+            grade = g;
+            System.out.println("Grade successfully updated.");
+        }
     }
     
     /*

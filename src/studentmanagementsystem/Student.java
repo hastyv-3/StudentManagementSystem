@@ -26,11 +26,6 @@ public class Student {
         name = n;
     }
     
-    // Adding a subject to students schedule
-    public void addSubject(String subject, double grade) {
-        subjects.put(subject, new Subject(subject, grade));
-    }
-    
     /*
      * Accessor methods
      */
@@ -65,7 +60,7 @@ public class Student {
     
     @Override
     public String toString() {
-        return "ID: " + this.id + "\nName: " + this.name;
+        return "ID: " + this.id + "\nName: " + this.name + "\nGrades: " + getSubjects();
     }
     
 }
