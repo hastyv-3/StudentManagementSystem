@@ -42,44 +42,50 @@ public class StudentManagementSystem {
             System.out.println();
             System.out.print("Enter choice: ");
 
-            input = keyboard.nextInt();
-            keyboard.nextLine();
+            String str = keyboard.nextLine();
 
-            switch (input) {
-                case 1:
-                    addStudent();
-                    break;
-                case 2:
-                    removeStudent();
-                    break;
-                case 3:
-                    updateStudent();
-                    break;
-                case 4:
-                    viewStudent();
-                    break;
-                case 5:
-                    addSubject();
-                    break;
-                case 6:
-                    generateReports();
-                    break;
-                case 7:
-                    saveFile();
-                    break;
-                case 8:
-                    loadFile();
-                    break;
-                case 9:
-                    inUse = false;
-                    break;
+            try {
+                input = Integer.parseInt(str);
+                keyboard.nextLine();
+                switch (input) {
+                    case 1:
+                        addStudent();
+                        break;
+                    case 2:
+                        removeStudent();
+                        break;
+                    case 3:
+                        updateStudent();
+                        break;
+                    case 4:
+                        viewStudent();
+                        break;
+                    case 5:
+                        addSubject();
+                        break;
+                    case 6:
+                        generateReports();
+                        break;
+                    case 7:
+                        saveFile();
+                        break;
+                    case 8:
+                        loadFile();
+                        break;
+                    case 9:
+                        inUse = false;
+                        break;
+                    default:
+                        System.out.println("Invalid choice.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a number between 1-9");
             }
 
         }
-
     }
-
     // adds student to HashMap with id being key
+
     private void addStudent() {
         String input1;
         String input2;
@@ -203,29 +209,35 @@ public class StudentManagementSystem {
             System.out.println("5. Back to main menu.");
             System.out.print("Enter choice: ");
 
-            input = keyboard.nextInt();
-            keyboard.nextLine();
+            String str = keyboard.nextLine();
 
-            switch (input) {
-                case 1:
-                    reportAverage();
-                    break;
-                case 2:
-                    reportHighest();
-                    break;
-                case 3:
-                    reportLowest();
-                    break;
-                case 4:
-                    reportAverageSorted();
-                    break;
-                case 5:
-                    inReports = false;
-                    break;
-                default:
-                    System.out.println("Invalid choice.");
+            try {
+                input = Integer.parseInt(str);
+                keyboard.nextLine();
+
+                switch (input) {
+                    case 1:
+                        reportAverage();
+                        break;
+                    case 2:
+                        reportHighest();
+                        break;
+                    case 3:
+                        reportLowest();
+                        break;
+                    case 4:
+                        reportAverageSorted();
+                        break;
+                    case 5:
+                        inReports = false;
+                        break;
+                    default:
+                        System.out.println("Invalid choice.");
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a number between 1-9");
             }
-
         }
     }
 
