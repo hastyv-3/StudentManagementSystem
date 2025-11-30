@@ -43,12 +43,11 @@ public class StudentManagementSystem {
             System.out.print("Enter choice: ");
 
             String str = keyboard.nextLine();
-            
+
             // Error checking for invalid inputs such as words
             // Executes corresponding method in case selected
             try {
                 input = Integer.parseInt(str);
-                keyboard.nextLine();
                 switch (input) {
                     case 1:
                         addStudent();
@@ -86,7 +85,7 @@ public class StudentManagementSystem {
 
         }
     }
-    
+
     // adds student to HashMap with id being key
     private void addStudent() {
         String input1;
@@ -162,6 +161,7 @@ public class StudentManagementSystem {
 
     }
 // adds a subject to students record
+
     private void addSubject() {
         String input;
 
@@ -197,7 +197,6 @@ public class StudentManagementSystem {
     /*
      * REPORTS
      */
-    
     // menu system for reports instead of adding double digit items in first level menu
     private void generateReports() {
         boolean inReports = true;
@@ -217,8 +216,6 @@ public class StudentManagementSystem {
 
             try {
                 input = Integer.parseInt(str);
-                keyboard.nextLine();
-
                 switch (input) {
                     case 1:
                         reportAverage();
@@ -301,6 +298,7 @@ public class StudentManagementSystem {
         }
 
     }
+
     // Given a subject name loops through each student for specified subject
     // then compares and keeps lowest grade and student for printing
     private void reportLowest() {
