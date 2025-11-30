@@ -58,9 +58,30 @@ public class Student {
         return sum / subjects.size();
     }
     
+    public double getHighestGrade() {
+        double high = 0;
+        for (Subject s: subjects.values()) {
+            if (s.getGrade() > high) {
+                high = s.getGrade();
+            }
+        }
+        
+        return high;
+    }
+    
+    public double getLowestGrade() {
+        double low = 101;
+        for (Subject s: subjects.values()) {
+            if (s.getGrade() < low) {
+                low = s.getGrade();
+            }
+        }
+        
+        return low;
+    }
     @Override
     public String toString() {
-        return "ID: " + this.id + "\nName: " + this.name + "\nGrades: " + getSubjects();
+        return "ID: " + this.id + "\nName: " + this.name;
     }
     
 }

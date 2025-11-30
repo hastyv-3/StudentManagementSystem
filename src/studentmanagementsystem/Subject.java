@@ -39,5 +39,10 @@ public class Subject {
     public double getGrade() {
         return grade;
     }
+    
+    @Override
+    public String toString() {
+        return name + ": " + String.format("%.2f", grade);
+    }
 
 }
