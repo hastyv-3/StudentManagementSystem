@@ -43,7 +43,9 @@ public class StudentManagementSystem {
             System.out.print("Enter choice: ");
 
             String str = keyboard.nextLine();
-
+            
+            // Error checking for invalid inputs such as words
+            // Executes corresponding method in case selected
             try {
                 input = Integer.parseInt(str);
                 keyboard.nextLine();
@@ -84,8 +86,8 @@ public class StudentManagementSystem {
 
         }
     }
+    
     // adds student to HashMap with id being key
-
     private void addStudent() {
         String input1;
         String input2;
@@ -159,7 +161,7 @@ public class StudentManagementSystem {
         }
 
     }
-
+// adds a subject to students record
     private void addSubject() {
         String input;
 
@@ -195,6 +197,8 @@ public class StudentManagementSystem {
     /*
      * REPORTS
      */
+    
+    // menu system for reports instead of adding double digit items in first level menu
     private void generateReports() {
         boolean inReports = true;
         int input;
@@ -241,6 +245,7 @@ public class StudentManagementSystem {
         }
     }
 
+    // given a student id, finds the student's average
     private void reportAverage() {
         System.out.println();
         System.out.println("***Student Average***");
@@ -262,6 +267,8 @@ public class StudentManagementSystem {
 
     }
 
+    // Given a subject name loops through each student for specified subject
+    // then compares and keeps highest grade and student for printing
     private void reportHighest() {
         System.out.println();
         System.out.println("***Highest Grade in Subject***");
@@ -294,7 +301,8 @@ public class StudentManagementSystem {
         }
 
     }
-
+    // Given a subject name loops through each student for specified subject
+    // then compares and keeps lowest grade and student for printing
     private void reportLowest() {
         System.out.println();
         System.out.println("***Lowest Grade in Subject***");
@@ -328,6 +336,9 @@ public class StudentManagementSystem {
 
     }
 
+    // Sorts students by average with bubble sort algorithm high to low compares each
+    // calculatedAverageGrade to every term stored in a higher index till Student
+    // objects are sorted by their calculatedAverageGrade then prints list
     private void reportAverageSorted() {
         System.out.println();
         System.out.println("***Students Sorted by Average***");
